@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const USERS_QUERY=gql`
 query USERS_QUERY {
-  allUsers{
+  allUsers {
     id
     name
   }
