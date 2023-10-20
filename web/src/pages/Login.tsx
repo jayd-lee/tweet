@@ -18,7 +18,6 @@ interface LoginValues {
 
 
 const Login = () => {
-
   
     const [login, {data}] = useMutation(LOGIN_MUTATION);
     const navigate = useNavigate()
@@ -60,7 +59,6 @@ const Login = () => {
           <Field name="password" type="password" placeholder="Password" />
           <ErrorMessage name="password" component={'div'} />
           <button type='submit'>Login</button>
-
       </Form>
 
     </Formik>

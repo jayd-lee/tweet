@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import { setContext } from 'apollo-link-context';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import PrivateRoutes from './components/PrivateRoutes';
 
 const httpLink = new HttpLink({
   uri: import.meta.env.VITE_BACKEND
@@ -30,8 +31,11 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <Routes>
-        <Route path="/" element={<Users />}/>
+      <Routes>        
+        <Route element={<PrivateRoutes/>} >
+          <Route path="/users" element={<Users/>} />
+        </Route>
+
         <Route path="/landing" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
