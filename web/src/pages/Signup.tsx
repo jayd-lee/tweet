@@ -1,8 +1,8 @@
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup'
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import TwitterLogo from '../styles/assets/twitter-logo.png'
 
 interface SignupValues {
   name: string
@@ -46,8 +46,13 @@ const Signup = () => {
     })
 
   return ( 
-  <div>
-    <h1>Signup</h1>
+    <div className='container'>
+    <img src={TwitterLogo} 
+    alt="logo" 
+    style={{width: '50px'}} 
+    className='logo' 
+    />
+    <h3>Signup</h3>
     <Formik 
     initialValues={initialValues}
     validationSchema={validationSchema}
@@ -70,11 +75,15 @@ const Signup = () => {
           <ErrorMessage name="password" component={'div'} />
           <Field name="confirmPassword" type="password" placeholder="Confirm Password" />
           <ErrorMessage name="confirmPassword" component={'div'} />
-          <button type='submit'>Signup</button>
+          <button type='submit' className='login-button'><span>Sign up</span></button>
       </Form>
+      
 
     </Formik>
-
+      <div className="register">
+        <h4>Already have an account?</h4>
+        <Link to='/login' > Log in </Link>
+      </div>
   </div> 
   );
 }
