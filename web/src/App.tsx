@@ -7,6 +7,7 @@ import { setContext } from 'apollo-link-context';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import PrivateRoutes from './components/PrivateRoutes';
+import Profile from './pages/Profile';
 
 
 const httpLink = new HttpLink({
@@ -36,6 +37,8 @@ function App() {
       <Routes>        
         <Route element={<PrivateRoutes/>} >
           <Route path="/users" element={<Users/>} />
+          <Route path="/profile" element={<Profile/>} />
+
         </Route>
 
         <Route path="/landing" element={<Landing />} />
